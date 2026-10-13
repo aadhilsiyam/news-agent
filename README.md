@@ -1,2 +1,2 @@
-#News Agent
-DevOPs Learning Project that collects and alayses saily news.
+#news Agent
+A DevOps learning project that collects and analyses daily news.
