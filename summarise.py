@@ -6,7 +6,7 @@ from google import genai
 
 from fetch_news import fetch_headlines
 
-MODEL = "gemini-2.5-flash-lite"
+MODEL = "gemini-3.5-flash-lite"
 
 
 def build_prompt(articles):
