@@ -3,3 +3,4 @@ __pycache__/
 news-*.json
 .env
 digest-*.md
+cron.log
