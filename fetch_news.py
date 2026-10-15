@@ -1,8 +1,10 @@
-
 import json
+import socket
 from datetime import date
 
 import feedparser
+
+socket.setdefaulttimeout(15)
 
 FEEDS = {
     "War & World": "https://feeds.bbci.co.uk/news/world/rss.xml",
@@ -18,7 +20,11 @@ def fetch_headlines():
     """Download feeds and return a list of headline dictionaries."""
     articles = []
     for topic, url in FEEDS.items():
-        feed = feedparser.parse(url)
+        try:
+            feed = feedparser.parse(url, agent="news-agent/1.0")
+        except Exception as error:
+            print(f"Skipping {topic}: {error}")
+            continue
         for entry in feed.entries[:HEADLINES_PER_FEED]:
             articles.append(
                 {
